@@ -2,7 +2,6 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eu te amo, Nicole ❤️</title>
 
@@ -78,6 +77,7 @@
             background-color: #ff225a;
             color: white;
             position: relative;
+            transition: none;
         }
     </style>
 </head>
@@ -89,31 +89,35 @@
         <img src="https://i.pinimg.com/originals/5a/3e/a6/5a3ea6cf45baef2c4b2ef02ae05610a8.gif" alt="Gif fofinho">
 
         <h2>Estou com saudade... você também está? 🥺</h2>
-
         
         <div class="botoes">
             <a href="https://www.youtube.com/watch?v=JFagv1XBo3U" target="_blank">
                 <button id="sim">Sim! 😍</button>
             </a>
 
-            <button onmouseover="fuja()" id="nao">Não 😢</button>
+            <button id="nao">Não 😢</button>
         </div>
     </div>
 
     <script>
-        function fuja(){
-            var botaoNao = document.getElementById("nao");
+        const botaoNao = document.getElementById("nao");
 
-            var maxX = 200; 
-            var maxY = 120;
+        botaoNao.addEventListener("mousemove", fugir);
+        botaoNao.addEventListener("touchstart", fugir);
 
-            var aleatorioX = Math.floor(Math.random() * maxX) - maxX / 2;
-            var aleatorioY = Math.floor(Math.random() * maxY) - maxY / 2;
+        function fugir(){
+            let maxX = window.innerWidth - botaoNao.clientWidth;
+            let maxY = window.innerHeight - botaoNao.clientHeight;
 
-            botaoNao.style.transform = `translate(${aleatorioX}px, ${aleatorioY}px)`;
+            let x = Math.floor(Math.random() * maxX);
+            let y = Math.floor(Math.random() * maxY);
+
+            botaoNao.style.position = "absolute";
+            botaoNao.style.left = x + "px";
+            botaoNao.style.top = y + "px";
         }
 
-        // Caso o autoplay seja bloqueado:
+        // Ativa música se o navegador bloquear autoplay
         document.body.addEventListener("click", () => {
             document.getElementById("musica").play();
         });
@@ -121,3 +125,4 @@
 
 </body>
 </html>
+
