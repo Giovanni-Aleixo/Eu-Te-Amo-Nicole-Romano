@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eu te amo, Nicole ❤️</title>
+
+    <style>
+        body{
+            background: linear-gradient(135deg, #ff3161, #ff7a9e);
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+
+        .painel{
+            background-color: #fff;
+            width: 480px;
+            padding: 40px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 0 25px rgba(255, 0, 80, 0.45);
+            animation: aparecer 1.2s ease-in-out;
+        }
+
+        @keyframes aparecer {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        h1{
+            color: #d9004c;
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        h2{
+            color: #555;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        img{
+            width: 200px;
+            border-radius: 12px;
+        }
+
+        .botoes{
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        button{
+            cursor: pointer;
+            font-size: 16px;
+            padding: 10px 22px;
+            border-radius: 12px;
+            border: none;
+            transition: 0.3s;
+        }
+
+        #sim{
+            background-color: #ff225a;
+            color: white;
+        }
+
+        #sim:hover{
+            transform: scale(1.15);
+        }
+
+        #nao{
+            background-color: #ff225a;
+            color: white;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="painel">
+        <h1>Eu te amo, Nicole ❤️</h1>
+
+        <img src="https://i.pinimg.com/originals/5a/3e/a6/5a3ea6cf45baef2c4b2ef02ae05610a8.gif" alt="Gif fofinho">
+
+        <h2>Estou com saudade... você também está? 🥺</h2>
+
+        
+        <div class="botoes">
+            <a href="https://www.youtube.com/watch?v=JFagv1XBo3U" target="_blank">
+                <button id="sim">Sim! 😍</button>
+            </a>
+
+            <button onmouseover="fuja()" id="nao">Não 😢</button>
+        </div>
+    </div>
+
+    <script>
+        function fuja(){
+            var botaoNao = document.getElementById("nao");
+
+            var maxX = 200; 
+            var maxY = 120;
+
+            var aleatorioX = Math.floor(Math.random() * maxX) - maxX / 2;
+            var aleatorioY = Math.floor(Math.random() * maxY) - maxY / 2;
+
+            botaoNao.style.transform = `translate(${aleatorioX}px, ${aleatorioY}px)`;
+        }
+
+        // Caso o autoplay seja bloqueado:
+        document.body.addEventListener("click", () => {
+            document.getElementById("musica").play();
+        });
+    </script>
+
+</body>
+</html>
